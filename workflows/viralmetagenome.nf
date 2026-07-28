@@ -143,7 +143,12 @@ workflow VIRALMETAGENOME {
 
                 return fasta_files[0]
             }
-            .ifEmpty([])
+            .ifEmpty {
+                if (params.reference_pool) {
+                    error("No reference was loaded from reference_pool (${params.reference_pool}). Please provide a valid FASTA file.")
+                }
+                return []
+            }
             .map { unpacked -> [[id: 'reference'], unpacked] }
         ch_annotation_db    = ch_db.annotation.collect{_meta, unpacked -> unpacked}.ifEmpty([]).map{unpacked -> [[id: 'annotation'], unpacked]}
         ch_kraken2_db       = ch_db.kraken2.collect().ifEmpty([])
