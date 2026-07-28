@@ -25,12 +25,17 @@ process BLAST_MAKEBLASTDB {
     """
     if [ "${is_compressed}" == "true" ]; then
         gzip -c -d ${fasta} > ${fasta_name}
+        in_fasta="${fasta_name}"
+    elif [ -d "${fasta_name}" ]; then
+        in_fasta=\$(find -L "${fasta_name}" -maxdepth 2 -type f \\( -name "*.fasta" -o -name "*.fa" -o -name "*.fna" -o -name "*.ffn" \\) | head -1)
+    else
+        in_fasta="${fasta_name}"
     fi
 
     mkdir -p ${prefix}
 
     makeblastdb \\
-        -in ${fasta_name} \\
+        -in \${in_fasta} \\
         -out ${prefix}/${prefix} \\
         ${args}
 
