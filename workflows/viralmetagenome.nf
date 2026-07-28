@@ -120,7 +120,36 @@ workflow VIRALMETAGENOME {
 
         // transfer to value channels so processes are not just done once
         // '.collect()' is necessary to transform to list so cartesian products are made downstream
-        ch_ref_pool         = ch_db.reference.collect{_meta, unpacked -> unpacked}.ifEmpty([]).map{unpacked -> [[id: 'reference'], unpacked]}
+        ch_ref_pool         = ch_db.reference
+            .collect { _meta, unpacked ->
+                if (!unpacked.isDirectory()) {
+                    return unpacked
+                }
+
+                def fasta_files = []
+                (unpacked as File).eachFileRecurse(groovy.io.FileType.FILES) { f ->
+                    if (f.name ==~ /(?i).*\.(fasta|fa|fna|ffn)(\.gz)?$/) {
+                        fasta_files << f
+                    }
+                }
+
+                if (!fasta_files) {
+                    error("No FASTA file found in unpacked reference directory: ${unpacked}")
+                }
+
+                if (fasta_files.size() > 1) {
+                    error("Multiple FASTA files found in unpacked reference directory: ${unpacked}. Please provide a single reference FASTA.")
+                }
+
+                return fasta_files[0]
+            }
+            .ifEmpty {
+                if (params.reference_pool) {
+                    error("No reference was loaded from reference_pool (${params.reference_pool}). Please provide a valid FASTA file.")
+                }
+                return []
+            }
+            .map { unpacked -> [[id: 'reference'], unpacked] }
         ch_annotation_db    = ch_db.annotation.collect{_meta, unpacked -> unpacked}.ifEmpty([]).map{unpacked -> [[id: 'annotation'], unpacked]}
         ch_kraken2_db       = ch_db.kraken2.collect().ifEmpty([])
         ch_kaiju_db         = ch_db.kaiju.collect().ifEmpty([])
