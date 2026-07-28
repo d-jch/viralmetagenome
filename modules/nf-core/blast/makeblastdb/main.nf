@@ -31,7 +31,7 @@ process BLAST_MAKEBLASTDB {
 
     makeblastdb \\
         -in ${fasta_name} \\
-        -out ${prefix}/${fasta_name} \\
+        -out ${prefix}/${prefix} \\
         ${args}
 
     """
@@ -41,17 +41,15 @@ process BLAST_MAKEBLASTDB {
     def is_compressed  = fasta.getExtension() == "gz" ? true : false
     def fasta_name     = is_compressed ? fasta.getBaseName() : fasta
     """
-    touch ${fasta_name}.fasta
-    touch ${fasta_name}.fasta.ndb
-    touch ${fasta_name}.fasta.nhr
-    touch ${fasta_name}.fasta.nin
-    touch ${fasta_name}.fasta.njs
-    touch ${fasta_name}.fasta.not
-    touch ${fasta_name}.fasta.nsq
-    touch ${fasta_name}.fasta.ntf
-    touch ${fasta_name}.fasta.nto
-    mkdir ${prefix}
-    mv ${fasta_name}* ${prefix}
+    mkdir -p ${prefix}
+    touch ${prefix}/${prefix}.ndb
+    touch ${prefix}/${prefix}.nhr
+    touch ${prefix}/${prefix}.nin
+    touch ${prefix}/${prefix}.njs
+    touch ${prefix}/${prefix}.not
+    touch ${prefix}/${prefix}.nsq
+    touch ${prefix}/${prefix}.ntf
+    touch ${prefix}/${prefix}.nto
 
     """
 }
