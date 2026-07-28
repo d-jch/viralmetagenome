@@ -27,6 +27,8 @@ process BLAST_MAKEBLASTDB {
         gzip -c -d ${fasta} > ${fasta_name}
     fi
 
+    mkdir -p ${prefix}
+
     makeblastdb \\
         -in ${fasta_name} \\
         -out ${prefix}/${fasta_name} \\
