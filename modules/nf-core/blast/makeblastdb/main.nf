@@ -25,18 +25,11 @@ process BLAST_MAKEBLASTDB {
     """
     if [ "${is_compressed}" == "true" ]; then
         gzip -c -d ${fasta} > ${fasta_name}
-        in_fasta="${fasta_name}"
-    elif [ -d "${fasta_name}" ]; then
-        in_fasta=\$(find -L "${fasta_name}" -maxdepth 2 -type f \\( -name "*.fasta" -o -name "*.fa" -o -name "*.fna" -o -name "*.ffn" \\) | head -1)
-    else
-        in_fasta="${fasta_name}"
     fi
 
-    mkdir -p ${prefix}
-
     makeblastdb \\
-        -in \${in_fasta} \\
-        -out ${prefix}/${prefix} \\
+        -in ${fasta_name} \\
+        -out ${prefix}/${fasta_name} \\
         ${args}
 
     """
@@ -46,15 +39,17 @@ process BLAST_MAKEBLASTDB {
     def is_compressed  = fasta.getExtension() == "gz" ? true : false
     def fasta_name     = is_compressed ? fasta.getBaseName() : fasta
     """
-    mkdir -p ${prefix}
-    touch ${prefix}/${prefix}.ndb
-    touch ${prefix}/${prefix}.nhr
-    touch ${prefix}/${prefix}.nin
-    touch ${prefix}/${prefix}.njs
-    touch ${prefix}/${prefix}.not
-    touch ${prefix}/${prefix}.nsq
-    touch ${prefix}/${prefix}.ntf
-    touch ${prefix}/${prefix}.nto
+    touch ${fasta_name}.fasta
+    touch ${fasta_name}.fasta.ndb
+    touch ${fasta_name}.fasta.nhr
+    touch ${fasta_name}.fasta.nin
+    touch ${fasta_name}.fasta.njs
+    touch ${fasta_name}.fasta.not
+    touch ${fasta_name}.fasta.nsq
+    touch ${fasta_name}.fasta.ntf
+    touch ${fasta_name}.fasta.nto
+    mkdir ${prefix}
+    mv ${fasta_name}* ${prefix}
 
     """
 }

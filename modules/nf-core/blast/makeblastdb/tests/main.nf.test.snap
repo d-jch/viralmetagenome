@@ -2,22 +2,22 @@
     "makeblastdb - fasta": {
         "content": [
             [
-                "test.ndb",
-                "test.nhr",
-                "test.nin",
-                "test.njs",
-                "test.not",
-                "test.nsq",
-                "test.ntf",
-                "test.nto"
+                "genome.fasta.ndb",
+                "genome.fasta.nhr",
+                "genome.fasta.nin",
+                "genome.fasta.njs",
+                "genome.fasta.not",
+                "genome.fasta.nsq",
+                "genome.fasta.ntf",
+                "genome.fasta.nto"
             ],
             [
-                "test.ndb:md5,NEEDS_UPDATE",
-                "test.nhr:md5,NEEDS_UPDATE",
-                "test.not:md5,NEEDS_UPDATE",
-                "test.nsq:md5,NEEDS_UPDATE",
-                "test.ntf:md5,NEEDS_UPDATE",
-                "test.nto:md5,NEEDS_UPDATE"
+                "genome.fasta.ndb:md5,0d553c830656469211de113c5022f06d",
+                "genome.fasta.nhr:md5,f4b4ddb034fd3dd7b25c89e9d50c004e",
+                "genome.fasta.not:md5,1e53e9d08f1d23af0299cfa87478a7bb",
+                "genome.fasta.nsq:md5,982cbc7d9e38743b9b1037588862b9da",
+                "genome.fasta.ntf:md5,de1250813f0c7affc6d12dac9d0fb6bb",
+                "genome.fasta.nto:md5,33cdeccccebe80329f1fdbee7f5874cb"
             ],
             {
                 "versions_makeblastdb": [
@@ -44,14 +44,16 @@
                             "id": "test"
                         },
                         [
-                            "test.ndb:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nhr:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nin:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.njs:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.not:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nsq:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.ntf:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nto:md5,d41d8cd98f00b204e9800998ecf8427e"
+                            "genome.fasta.fasta:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.ndb:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nhr:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nin:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.njs:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.not:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nsq:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.ntf:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nto:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.gz:md5,6e9fe4042a72f2345f644f239272b7e6"
                         ]
                     ]
                 ],
@@ -68,14 +70,16 @@
                             "id": "test"
                         },
                         [
-                            "test.ndb:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nhr:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nin:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.njs:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.not:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nsq:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.ntf:md5,d41d8cd98f00b204e9800998ecf8427e",
-                            "test.nto:md5,d41d8cd98f00b204e9800998ecf8427e"
+                            "genome.fasta.fasta:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.ndb:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nhr:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nin:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.njs:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.not:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nsq:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.ntf:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.fasta.nto:md5,d41d8cd98f00b204e9800998ecf8427e",
+                            "genome.fasta.gz:md5,6e9fe4042a72f2345f644f239272b7e6"
                         ]
                     ]
                 ],
@@ -97,22 +101,22 @@
     "makeblastdb - fasta.gz": {
         "content": [
             [
-                "test.ndb",
-                "test.nhr",
-                "test.nin",
-                "test.njs",
-                "test.not",
-                "test.nsq",
-                "test.ntf",
-                "test.nto"
+                "genome.fasta.ndb",
+                "genome.fasta.nhr",
+                "genome.fasta.nin",
+                "genome.fasta.njs",
+                "genome.fasta.not",
+                "genome.fasta.nsq",
+                "genome.fasta.ntf",
+                "genome.fasta.nto"
             ],
             [
-                "test.ndb:md5,NEEDS_UPDATE",
-                "test.nhr:md5,NEEDS_UPDATE",
-                "test.not:md5,NEEDS_UPDATE",
-                "test.nsq:md5,NEEDS_UPDATE",
-                "test.ntf:md5,NEEDS_UPDATE",
-                "test.nto:md5,NEEDS_UPDATE"
+                "genome.fasta.ndb:md5,0d553c830656469211de113c5022f06d",
+                "genome.fasta.nhr:md5,f4b4ddb034fd3dd7b25c89e9d50c004e",
+                "genome.fasta.not:md5,1e53e9d08f1d23af0299cfa87478a7bb",
+                "genome.fasta.nsq:md5,982cbc7d9e38743b9b1037588862b9da",
+                "genome.fasta.ntf:md5,de1250813f0c7affc6d12dac9d0fb6bb",
+                "genome.fasta.nto:md5,33cdeccccebe80329f1fdbee7f5874cb"
             ],
             {
                 "versions_makeblastdb": [
@@ -128,6 +132,6 @@
             "nf-test": "0.9.3",
             "nextflow": "25.10.3"
         },
-        "timestamp": "2026-02-11T14:44:42.886955"
+        "timestamp": "2026-02-11T14:44:42.886952"
     }
 }
